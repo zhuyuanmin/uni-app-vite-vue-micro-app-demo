@@ -2,7 +2,7 @@ import { getToken, removeToken } from './auth'
 import env from './env'
 
 function service(options: Parameters<typeof uni.request>[0]) {
-  options.url = `${env.domain.test}${options.url}`;
+  options.url = `${env.domain[import.meta.env.MODE]}${options.url}`;
 
   if (getToken()) {
     options.header = {
